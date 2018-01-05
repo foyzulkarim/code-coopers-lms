@@ -1,0 +1,18 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/projects/Lms/.vs
+/projects/Lms/Model/obj/Debug
+/projects/Lms/Model/bin/Debug
+/projects/Lms/packages
+/projects/Lms/RequestModel/obj/Debug
+/projects/Lms/RequestModel/bin/Debug
+/projects/Lms/Service/obj/Debug
+/projects/Lms/Service/bin/Debug
+/projects/Lms/ViewModel/obj/Debug
+/projects/Lms/ViewModel/bin/Debug
+/projects/Lms/LmsWeb/bin
+/projects/Lms/LmsWeb/obj/Debug
+*.user
