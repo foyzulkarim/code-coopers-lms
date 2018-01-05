@@ -18,7 +18,7 @@
             return userIdentity;
         }
         
-        public string IsActive { get; set; }
+        public bool IsActive { get; set; }
 
         public DateTime Created { get; set; }
 

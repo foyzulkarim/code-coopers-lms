@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequestModel", "RequestMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{71E0291C-83CB-4B3E-B186-D21A02DD0C1E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SeedDataApp", "SeedDataApp\SeedDataApp.csproj", "{D81287C5-0082-4D7E-8422-1B894EE5AB75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{71E0291C-83CB-4B3E-B186-D21A02DD0C1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71E0291C-83CB-4B3E-B186-D21A02DD0C1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71E0291C-83CB-4B3E-B186-D21A02DD0C1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D81287C5-0082-4D7E-8422-1B894EE5AB75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D81287C5-0082-4D7E-8422-1B894EE5AB75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D81287C5-0082-4D7E-8422-1B894EE5AB75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D81287C5-0082-4D7E-8422-1B894EE5AB75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
