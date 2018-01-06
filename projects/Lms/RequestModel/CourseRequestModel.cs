@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace RequestModel
 {
     using System.Linq.Expressions;
-
+    using Commons.RequestModel;
     using Commons.ViewModel;
 
     using Model;
 
-    public class CourseRequestModel : Commons.RequestModel.RequestModel<Course>
+    public class CourseRequestModel : RequestModel<Course>
     {
         public CourseRequestModel(string keyword, string orderBy = "Modified", string isAscending = "False")
             : base(keyword, orderBy, isAscending)

@@ -1,5 +1,3 @@
-C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\obj\Debug\SeedDataApp.csprojResolveAssemblyReference.cache
-C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\obj\Debug\SeedDataApp.csproj.CoreCompileInputs.cache
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\ApplicationInsights.config
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\SeedDataApp.exe.config
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\SeedDataApp.exe
@@ -23,10 +21,10 @@ C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\ViewModel.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.Optimization.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.Mvc.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.Http.dll
+C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\Commons.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.Http.Owin.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Net.Http.Formatting.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.Http.WebHost.dll
-C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\Commons.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\WebGrease.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.Razor.dll
@@ -65,5 +63,7 @@ C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.WebPage
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.WebPages.xml
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\Antlr3.Runtime.pdb
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\obj\Debug\SeedDataApp.csprojResolveAssemblyReference.cache
+C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\obj\Debug\SeedDataApp.csproj.CoreCompileInputs.cache
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\obj\Debug\SeedDataApp.exe
 C:\Github\code-coopers-lms\projects\Lms\SeedDataApp\obj\Debug\SeedDataApp.pdb
