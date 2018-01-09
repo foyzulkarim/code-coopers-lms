@@ -16,3 +16,5 @@
 /projects/Lms/LmsWeb/bin
 /projects/Lms/LmsWeb/obj/Debug
 *.user
+/projects/Lms/SeedDataApp/bin/Debug
+/projects/Lms/SeedDataApp/obj/Debug
