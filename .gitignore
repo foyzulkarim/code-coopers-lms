@@ -18,3 +18,7 @@
 *.user
 /projects/Lms/SeedDataApp/bin/Debug
 /projects/Lms/SeedDataApp/obj/Debug
+/projects/LmsClient/.vs
+/projects/LmsClient/bin
+/projects/LmsClient/obj/Debug
+/projects/LmsClient/packages
