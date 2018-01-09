@@ -25,21 +25,20 @@
         [HttpPost]
         [Route("Add")]
         [ActionName("Add")]
-        public IHttpActionResult Add()
+        public IHttpActionResult Add(T model)
         {
-            //if (!this.ModelState.IsValid)
-            //{
-            //    return this.BadRequest(this.ModelState);
-            //}
+            if (!this.ModelState.IsValid)
+            {
+                return this.BadRequest(this.ModelState);
+            }
 
-            //model.ModifiedBy = this.User.Identity.GetUserName();
-            //model.CreatedBy = this.User.Identity.GetUserName();
+            model.ModifiedBy = this.User.Identity.GetUserName();
+            model.CreatedBy = this.User.Identity.GetUserName();
 
-            //model.Id = Guid.NewGuid().ToString();
+            model.Id = Guid.NewGuid().ToString();
 
-            //var add = this.service.Add(model);
-            //return this.Ok(add);
-            return this.Ok(DateTime.Now);
+            var add = this.service.Add(model);
+            return this.Ok(add);           
         }
     }
 }
