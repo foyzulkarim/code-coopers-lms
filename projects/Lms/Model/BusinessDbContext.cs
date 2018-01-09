@@ -21,5 +21,7 @@ namespace Model
         }
 
         public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Level> Levels { get; set; }
     }
 }

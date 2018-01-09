@@ -251,6 +251,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LevelController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Filters\EntitySaveFilterAttribute.cs" />
     <Compile Include="Global.asax.cs">

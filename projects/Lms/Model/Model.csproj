@@ -52,9 +52,14 @@
   <ItemGroup>
     <Compile Include="BusinessDbContext.cs" />
     <Compile Include="Course.cs" />
+    <Compile Include="Level.cs" />
     <Compile Include="Migrations\201801051626053_CourseV1.cs" />
     <Compile Include="Migrations\201801051626053_CourseV1.Designer.cs">
       <DependentUpon>201801051626053_CourseV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801091550273_LevelAdded.cs" />
+    <Compile Include="Migrations\201801091550273_LevelAdded.Designer.cs">
+      <DependentUpon>201801091550273_LevelAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,6 +71,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201801051626053_CourseV1.resx">
       <DependentUpon>201801051626053_CourseV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091550273_LevelAdded.resx">
+      <DependentUpon>201801091550273_LevelAdded.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

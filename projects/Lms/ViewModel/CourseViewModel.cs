@@ -17,7 +17,10 @@ namespace ViewModel
             : base(x)
         {
             Name = x.Name;
+            Fee = x.Fee;
         }
+
+        public double Fee { get; set; }
 
         public string Name { get; set; }
     }
