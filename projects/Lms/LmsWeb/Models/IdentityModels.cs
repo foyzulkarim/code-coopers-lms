@@ -3,6 +3,8 @@ using Microsoft.AspNet.Identity.Owin;
 
 namespace LmsWeb.Models
 {
+    using System.Data.Entity;
+
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -16,5 +18,7 @@ namespace LmsWeb.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<ApplicationRole> ApplicationRoles { get; set; }
     }
 }

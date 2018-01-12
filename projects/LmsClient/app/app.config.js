@@ -39,24 +39,6 @@ var App;
                 controller: "TeachersController",
                 controllerAs: "vm"
             })
-                .state("root.course-list", {
-                url: "/course-list",
-                templateUrl: "partials/course/course-list.tpl.html",
-                controller: "CoursesController",
-                controllerAs: "vm"
-            })
-                .state("root.course-entry", {
-                url: "/course-entry",
-                templateUrl: "partials/course/course-entry.tpl.html",
-                controller: "CourseController",
-                controllerAs: "vm"
-            })
-                .state("root.course-detail", {
-                url: "/course-detail/:id",
-                templateUrl: "partials/course/course-detail.tpl.html",
-                controller: "CourseContentsController",
-                controllerAs: "vm"
-            })
                 .state("root.content-entry", {
                 url: "/content-entry",
                 templateUrl: "partials/content/content-entry.tpl.html",

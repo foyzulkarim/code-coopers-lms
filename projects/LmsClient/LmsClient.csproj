@@ -63,7 +63,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="partials\course\course-list.tpl.html" />
+    <Content Include="partials\course\teacher-course-entry.tpl.html" />
+    <Content Include="partials\course\teacher-course-list.tpl.html" />
     <None Include="packages.config" />
     <Content Include="Scripts\angular-local-storage.js" />
     <Content Include="Scripts\angular-local-storage.min.js" />
@@ -107,7 +108,9 @@
     <TypeScriptCompile Include="app\account\AccountService.ts" />
     <TypeScriptCompile Include="app\app.config.ts" />
     <TypeScriptCompile Include="app\common\LocalStorageService.ts" />
+    <TypeScriptCompile Include="app\common\Model.ts" />
     <TypeScriptCompile Include="app\common\WebService.ts" />
+    <TypeScriptCompile Include="app\course\CourseConfig.ts" />
     <TypeScriptCompile Include="app\course\CourseController.ts" />
     <TypeScriptCompile Include="app\directive\Permission.ts" />
     <TypeScriptCompile Include="app\home\HomeController.ts" />

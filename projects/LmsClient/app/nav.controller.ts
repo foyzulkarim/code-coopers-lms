@@ -24,9 +24,9 @@
             self.storageService = storageService;
             let signedIn = self.isUserSignedIn();
             if (signedIn) {
-                self.signedInSuccessfully();               
+                self.signedInSuccessfully();
             }
-            
+
 
             //self.$rootScope.$on("signedin", self.signedInSuccessfully);
             self.$rootScope.$on("signedin", () => { self.signedInSuccessfully(); });
@@ -45,6 +45,11 @@
 
             // set the data to variable , that will automatically display the data to view. 
             self.isSignedIn = true;
+            if (userInfo.landingRoute == null) {
+                userInfo.landingRoute = "root.home";
+                self.storageService.save(LocalStorageKeys.UserInfo, userInfo);
+            }
+
             self.stateService.go(userInfo.landingRoute);
         }
 
@@ -61,7 +66,7 @@
             let userInfo = self.loadUserInfo();
             return userInfo != null;
         }
-        
+
         singout(): void {
             var self = this;
             self.$rootScope.$broadcast("signedout");

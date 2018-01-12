@@ -1,0 +1,51 @@
+﻿{
+  "Roles": [ "SuperAdmin", "Student", "Teacher" ],
+  "Users": [
+    {
+      "Email": "foyzulkarim@gmail.com",
+      "Username": "foyzulkarim@gmail.com",
+      "Password": "Pass@123",
+      "EmailConfirmed": true,
+      "PhoneNumber": "01789000000",
+      "Role": "SuperAdmin"
+    },
+    {
+      "Email": "teacher@cclms.com",
+      "Username": "teacher@cclms.com",
+      "Password": "Pass@123",
+      "EmailConfirmed": true,
+      "PhoneNumber": "01789000001",
+      "Role": "Teacher"
+    },
+    {
+      "Email": "student@cclms.com",
+      "Username": "student@cclms.com",
+      "Password": "Pass@123",
+      "EmailConfirmed": true,
+      "PhoneNumber": "01789000002",
+      "Role": "Student"
+    }
+  ], 
+  "Resources": [
+    {
+      "Name": "div-student-courses",
+      "IsPublic": false,
+      "Permissions": [ "Student" ]
+    },
+    {
+      "Name": "menu-student-course-list",
+      "Ispublic": false,
+      "Permissions": [ "Student" ]
+    },
+    {
+      "Name": "menu-teacher-course-entry",
+      "Ispublic": false,
+      "Permissions": [ "Teacher" ]
+    },
+    {
+      "Name": "menu-teacher-course-list",
+      "Ispublic": false,
+      "Permissions": [ "Teacher" ]
+    }
+  ]
+}

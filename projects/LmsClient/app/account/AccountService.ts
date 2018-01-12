@@ -56,7 +56,7 @@
                 info.userName = response.data.userName;
                 info.resources = response.data.resources;
                 self.storageService.save(LocalStorageKeys.UserInfo, info);
-                
+
                 deferred.resolve(response.data);
             }
 
@@ -66,7 +66,7 @@
 
             var data = `username=${username}&password=${password}&grant_type=password`;
             console.log('AccountService signin');
-            self.baseRepository.postUrlencodedForm("http://localhost:30285/token", data).then(successCallback, errorCallback);
+            self.baseRepository.postUrlencodedForm(AppConstants.UserAuthenticationUrl, data).then(successCallback, errorCallback);
             return deferred.promise;
         }
     }

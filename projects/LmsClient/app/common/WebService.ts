@@ -1,7 +1,7 @@
 module App {
 
     export class AppConstants {
-        static BaseUrl = "http://localhost:30285/";
+        static BaseUrl = "http://localhost:1837/";
         static StatusOk = 200;
         static StatusBad = 400;
         static BaseApiUrl = AppConstants.BaseUrl + "api/";

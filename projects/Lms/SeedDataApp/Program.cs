@@ -6,88 +6,82 @@ using System.Threading.Tasks;
 
 namespace SeedDataApp
 {
+    using System.IO;
+    using System.Security.AccessControl;
+
     using LmsWeb;
     using LmsWeb.Models;
 
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
 
+    using Newtonsoft.Json;
+
     class Program
     {
         static void Main(string[] args)
         {
-            ApplicationDbContext db = ApplicationDbContext.Create();
-            IUserStore<ApplicationUser> store = new UserStore<ApplicationUser>(db);
-            ApplicationUserManager manager = new ApplicationUserManager(store);
-            string superAdminRoleId = GetRoleId("SuperAdmin", db);
-
-            string superAdminUsername = "foyzulkarim@gmail.com";
-            if (manager.FindByName(superAdminUsername) == null)
-            {
-                ApplicationUser user = new ApplicationUser()
-                {
-                    Email = superAdminUsername,
-                    UserName = superAdminUsername,
-                    Created = DateTime.Now,
-                    CreatedBy = superAdminUsername,
-                    Modified = DateTime.Now,
-                    ModifiedBy = superAdminUsername,
-                    EmailConfirmed = true,
-                    IsActive = true,
-                    Id = new Guid().ToString(),
-                    PhoneNumber = "01789000000",
-                    RoleId = superAdminRoleId
-                };
-                IdentityResult result = manager.Create(user, "Pass@123");
-            }
-
-            string teacher = "teacher1@cclms.com";
-            string student = "student@cclms.com";
-
-            string teacherRoleId = GetRoleId("Teacher", db);
-            string studentRoleId = GetRoleId("Student", db);
+            ApplicationDbContext context = ApplicationDbContext.Create();
             
+            string allText = File.ReadAllText("seed-data.json");
+            SeedData seedData = JsonConvert.DeserializeObject<SeedData>(allText);
 
-            if (manager.FindByName(teacher) == null)
+            Console.WriteLine("operating on seed data roles: \n\n");
+            foreach (var role in seedData.Roles)
             {
-                ApplicationUser user = new ApplicationUser()
+                ApplicationRole dbRole = context.ApplicationRoles.AsEnumerable().FirstOrDefault(x => x.Name == role);
+                if (dbRole == null)
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    Email = teacher,
-                    UserName = teacher,
-                    Created = DateTime.Now,
-                    CreatedBy = superAdminUsername,
-                    Modified = DateTime.Now,
-                    ModifiedBy = superAdminUsername,
-                    EmailConfirmed = true,
-                    IsActive = true,
-                    PhoneNumber = "01789000001",
-                    RoleId = teacherRoleId
-                };
-
-                IdentityResult result = manager.Create(user, "Pass@123");
+                    context.Roles.Add(new ApplicationRole(role));
+                    context.SaveChanges();
+                    Console.WriteLine("Roles: " + role);
+                }
             }
 
-
-            if (manager.FindByName(student) == null)
+            for (var index = 0; index < seedData.Users.Count; index++)
             {
-                ApplicationUser user = new ApplicationUser()
+                var seedUser = seedData.Users[index];
+                ApplicationUserManager manager = new ApplicationUserManager(new UserStore<ApplicationUser>(context));
+                ApplicationUser user = manager.FindByName(seedUser.UserName);
+                if (user == null)
                 {
-                    Id = Guid.NewGuid().ToString(),
-                    Email = student,
-                    UserName = student,
-                    Created = DateTime.Now,
-                    CreatedBy = superAdminUsername,
-                    Modified = DateTime.Now,
-                    ModifiedBy = superAdminUsername,
-                    EmailConfirmed = true,
-                    IsActive = true,
-                    PhoneNumber = "01789000002",
-                    RoleId = studentRoleId
-                };
+                    user = new ApplicationUser()
+                    {
+                        Email = seedUser.UserName,
+                        UserName = seedUser.UserName,
+                        EmailConfirmed = true,
+                        PhoneNumber = index.ToString(),
+                        IsActive = true,
+                        RoleId = GetRoleId(seedUser.Role, context)
+                    };
 
-                IdentityResult result = manager.Create(user, "Pass@123");
+                    IdentityResult result = manager.Create(user, seedUser.Password);
+                    if (result.Succeeded)
+                    {
+                        manager.AddToRole(user.Id, seedUser.Role);
+                    }
+
+                    Console.WriteLine("Adding User: " + user.UserName);
+                }
+
+                var roles = manager.GetRoles(user.Id);
+                if (roles.Count == 0)
+                {
+                    Console.WriteLine("Adding user role - " + seedUser.Role);
+                    manager.AddToRole(user.Id, seedUser.Role);
+                }
             }
+
+            //var dbRoles = context.ApplicationRoles.ToList();
+            //Console.WriteLine("operating on resources: \n\n");
+            List<SeedResource> resources = seedData.Resources;
+            //AddPermissions(resources, context, dbRoles);
+
+            foreach (var resource in resources)
+            {
+                Console.WriteLine(resource.Name);
+            }
+
 
             Console.WriteLine("Done");
 
@@ -105,6 +99,43 @@ namespace SeedDataApp
             }
 
             return role.Id;
+        }
+
+
+        private static void AddPermissions(List<SeedResource> resources, ApplicationDbContext context, List<ApplicationRole> dbRoles)
+        {
+            foreach (var seedResource in resources)
+            {
+                //var dbResource = context.Resources.FirstOrDefault(x => x.Name == seedResource.Name);
+                //if (dbResource == null)
+                //{
+                //    dbResource = new ApplicationResource() { Name = seedResource.Name, ResourceType = resourceType };
+                //    context.Resources.Add(dbResource);
+                //    context.SaveChanges();
+                //    Console.WriteLine("Adding Resource: " + dbResource.Name);
+                //}
+
+                //var allowedRoles = seedResource.Permissions.ToList();
+                //foreach (string allowedRole in allowedRoles)
+                //{
+                //    var dbRole = dbRoles.First(x => x.Name == allowedRole);
+                //    var permission =
+                //        context.Permissions.FirstOrDefault(x => x.RoleId == dbRole.Id && x.ResourceId == dbResource.Id);
+                //    if (permission == null)
+                //    {
+                //        permission = new ApplicationPermission()
+                //                         {
+                //                             IsAllowed = true,
+                //                             IsDisabled = false,
+                //                             ResourceId = dbResource.Id,
+                //                             RoleId = dbRole.Id
+                //                         };
+                //        context.Permissions.Add(permission);
+                //        context.SaveChanges();
+                //        Console.WriteLine("Adding permission : resource - " + dbResource.Name + "\t role - " + dbRole.Name);
+                //    }
+                //}
+            }
         }
     }
 }

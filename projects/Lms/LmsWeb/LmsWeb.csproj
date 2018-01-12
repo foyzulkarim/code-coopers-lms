@@ -265,9 +265,14 @@
     <Compile Include="Migrations\201801051721344_UserIsActiveChanged.Designer.cs">
       <DependentUpon>201801051721344_UserIsActiveChanged.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801121630355_AddedDefaultRoute.cs" />
+    <Compile Include="Migrations\201801121630355_AddedDefaultRoute.Designer.cs">
+      <DependentUpon>201801121630355_AddedDefaultRoute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -344,6 +349,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801051721344_UserIsActiveChanged.resx">
       <DependentUpon>201801051721344_UserIsActiveChanged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801121630355_AddedDefaultRoute.resx">
+      <DependentUpon>201801121630355_AddedDefaultRoute.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
