@@ -7,13 +7,13 @@ namespace LmsWeb.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class AddedDefaultRoute : IMigrationMetadata
+    public sealed partial class Init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddedDefaultRoute));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Init));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801121630355_AddedDefaultRoute"; }
+            get { return "201801131533527_Init"; }
         }
         
         string IMigrationMetadata.Source

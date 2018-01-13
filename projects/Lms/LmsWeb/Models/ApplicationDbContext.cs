@@ -20,5 +20,9 @@ namespace LmsWeb.Models
         }
 
         public DbSet<ApplicationRole> ApplicationRoles { get; set; }
+
+        public DbSet<AspNetResource> AspNetResources { get; set; }
+
+        public DbSet<AspNetPermission> AspNetPermissions { get; set; }
     }
 }

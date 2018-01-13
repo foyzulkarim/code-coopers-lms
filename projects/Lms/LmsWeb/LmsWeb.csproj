@@ -257,24 +257,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801051636097_UserV1.cs" />
-    <Compile Include="Migrations\201801051636097_UserV1.Designer.cs">
-      <DependentUpon>201801051636097_UserV1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801051721344_UserIsActiveChanged.cs" />
-    <Compile Include="Migrations\201801051721344_UserIsActiveChanged.Designer.cs">
-      <DependentUpon>201801051721344_UserIsActiveChanged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801121630355_AddedDefaultRoute.cs" />
-    <Compile Include="Migrations\201801121630355_AddedDefaultRoute.Designer.cs">
-      <DependentUpon>201801121630355_AddedDefaultRoute.cs</DependentUpon>
+    <Compile Include="Migrations\201801131533527_Init.cs" />
+    <Compile Include="Migrations\201801131533527_Init.Designer.cs">
+      <DependentUpon>201801131533527_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountBindingModels.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationRole.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\AspNetPermission.cs" />
+    <Compile Include="Models\AspNetResource.cs" />
+    <Compile Include="Models\BaseEntity.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -344,17 +339,6 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801051636097_UserV1.resx">
-      <DependentUpon>201801051636097_UserV1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801051721344_UserIsActiveChanged.resx">
-      <DependentUpon>201801051721344_UserIsActiveChanged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801121630355_AddedDefaultRoute.resx">
-      <DependentUpon>201801121630355_AddedDefaultRoute.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
@@ -375,6 +359,11 @@
       <Project>{71e0291c-83cb-4b3e-b186-d21a02dd0c1e}</Project>
       <Name>ViewModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201801131533527_Init.resx">
+      <DependentUpon>201801131533527_Init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

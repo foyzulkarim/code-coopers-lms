@@ -19,22 +19,24 @@ namespace SeedDataApp
 
     class Program
     {
+        const string admin = "foyzulkarim@gmail.com";
+
         static void Main(string[] args)
         {
             ApplicationDbContext context = ApplicationDbContext.Create();
-            
+
             string allText = File.ReadAllText("seed-data.json");
             SeedData seedData = JsonConvert.DeserializeObject<SeedData>(allText);
 
-            Console.WriteLine("operating on seed data roles: \n\n");
-            foreach (var role in seedData.Roles)
+            Console.WriteLine("Operating on seed data roles: \n\n");
+            foreach (var roleName in seedData.Roles)
             {
-                ApplicationRole dbRole = context.ApplicationRoles.AsEnumerable().FirstOrDefault(x => x.Name == role);
-                if (dbRole == null)
+                ApplicationRole role = context.ApplicationRoles.FirstOrDefault(x => x.Name == roleName);
+                if (role == null)
                 {
-                    context.Roles.Add(new ApplicationRole(role));
+                    context.Roles.Add(new ApplicationRole(roleName));
                     context.SaveChanges();
-                    Console.WriteLine("Roles: " + role);
+                    Console.WriteLine("Roles: " + roleName);
                 }
             }
 
@@ -52,7 +54,11 @@ namespace SeedDataApp
                         EmailConfirmed = true,
                         PhoneNumber = index.ToString(),
                         IsActive = true,
-                        RoleId = GetRoleId(seedUser.Role, context)
+                        RoleId = GetRoleId(seedUser.Role, context),
+                        Created = DateTime.Now,
+                        Modified = DateTime.Now,
+                        CreatedBy = admin,
+                        ModifiedBy = admin
                     };
 
                     IdentityResult result = manager.Create(user, seedUser.Password);
@@ -72,10 +78,10 @@ namespace SeedDataApp
                 }
             }
 
-            //var dbRoles = context.ApplicationRoles.ToList();
-            //Console.WriteLine("operating on resources: \n\n");
+            var dbRoles = context.ApplicationRoles.ToList();
+            Console.WriteLine("operating on resources: \n\n");
             List<SeedResource> resources = seedData.Resources;
-            //AddPermissions(resources, context, dbRoles);
+            AddPermissions(resources, context, dbRoles);
 
             foreach (var resource in resources)
             {
@@ -104,37 +110,50 @@ namespace SeedDataApp
 
         private static void AddPermissions(List<SeedResource> resources, ApplicationDbContext context, List<ApplicationRole> dbRoles)
         {
-            foreach (var seedResource in resources)
+            foreach (SeedResource seedResource in resources)
             {
-                //var dbResource = context.Resources.FirstOrDefault(x => x.Name == seedResource.Name);
-                //if (dbResource == null)
-                //{
-                //    dbResource = new ApplicationResource() { Name = seedResource.Name, ResourceType = resourceType };
-                //    context.Resources.Add(dbResource);
-                //    context.SaveChanges();
-                //    Console.WriteLine("Adding Resource: " + dbResource.Name);
-                //}
+                var dbResource = context.AspNetResources.FirstOrDefault(x => x.Name == seedResource.Name);
+                if (dbResource == null)
+                {
+                    dbResource = new AspNetResource()
+                                     {
+                                         Name = seedResource.Name,
+                                         IsPublic = seedResource.IsPublic,
+                                         Id = Guid.NewGuid().ToString(),
+                                         Created = DateTime.Now,
+                                         Modified = DateTime.Now,
+                                         CreatedBy = admin,
+                                         ModifiedBy = admin
+                                     };
+                    context.AspNetResources.Add(dbResource);
+                    context.SaveChanges();
+                    Console.WriteLine("Adding Resource: " + dbResource.Name);
+                }
 
-                //var allowedRoles = seedResource.Permissions.ToList();
-                //foreach (string allowedRole in allowedRoles)
-                //{
-                //    var dbRole = dbRoles.First(x => x.Name == allowedRole);
-                //    var permission =
-                //        context.Permissions.FirstOrDefault(x => x.RoleId == dbRole.Id && x.ResourceId == dbResource.Id);
-                //    if (permission == null)
-                //    {
-                //        permission = new ApplicationPermission()
-                //                         {
-                //                             IsAllowed = true,
-                //                             IsDisabled = false,
-                //                             ResourceId = dbResource.Id,
-                //                             RoleId = dbRole.Id
-                //                         };
-                //        context.Permissions.Add(permission);
-                //        context.SaveChanges();
-                //        Console.WriteLine("Adding permission : resource - " + dbResource.Name + "\t role - " + dbRole.Name);
-                //    }
-                //}
+                var allowedRoles = seedResource.Permissions.ToList();
+                foreach (string allowedRole in allowedRoles)
+                {
+                    var dbRole = dbRoles.First(x => x.Name == allowedRole);
+                    var permission =
+                        context.AspNetPermissions.FirstOrDefault(x => x.RoleId == dbRole.Id && x.ResourceId == dbResource.Id);
+                    if (permission == null)
+                    {
+                        permission = new AspNetPermission()
+                        {
+                            IsAllowed = true,
+                            ResourceId = dbResource.Id,
+                            RoleId = dbRole.Id,
+                            Id = Guid.NewGuid().ToString(),
+                            Created = DateTime.Now,
+                            Modified = DateTime.Now,
+                            CreatedBy = admin,
+                            ModifiedBy = admin
+                        };
+                        context.AspNetPermissions.Add(permission);
+                        context.SaveChanges();
+                        Console.WriteLine("Adding permission : resource - " + dbResource.Name + "\t role - " + dbRole.Name);
+                    }
+                }
             }
         }
     }

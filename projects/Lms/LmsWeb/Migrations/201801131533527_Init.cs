@@ -3,7 +3,7 @@ namespace LmsWeb.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UserV1 : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -13,9 +13,53 @@ namespace LmsWeb.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false, maxLength: 256),
+                        Description = c.String(maxLength: 50),
+                        DefaultRoute = c.String(maxLength: 20),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .Index(t => t.Name, unique: true, name: "RoleNameIndex");
+            
+            CreateTable(
+                "dbo.AspNetPermissions",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        RoleId = c.String(maxLength: 128),
+                        ResourceId = c.String(maxLength: 128),
+                        IsAllowed = c.Boolean(nullable: false),
+                        Created = c.DateTime(nullable: false),
+                        CreatedBy = c.String(nullable: false, maxLength: 50),
+                        Modified = c.DateTime(nullable: false),
+                        ModifiedBy = c.String(nullable: false, maxLength: 50),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId)
+                .ForeignKey("dbo.AspNetResources", t => t.ResourceId)
+                .Index(t => t.RoleId)
+                .Index(t => t.ResourceId)
+                .Index(t => t.Created)
+                .Index(t => t.CreatedBy)
+                .Index(t => t.Modified)
+                .Index(t => t.ModifiedBy);
+            
+            CreateTable(
+                "dbo.AspNetResources",
+                c => new
+                    {
+                        Id = c.String(nullable: false, maxLength: 128),
+                        Name = c.String(),
+                        IsPublic = c.Boolean(nullable: false),
+                        Created = c.DateTime(nullable: false),
+                        CreatedBy = c.String(nullable: false, maxLength: 50),
+                        Modified = c.DateTime(nullable: false),
+                        ModifiedBy = c.String(nullable: false, maxLength: 50),
+                    })
+                .PrimaryKey(t => t.Id)
+                .Index(t => t.Created)
+                .Index(t => t.CreatedBy)
+                .Index(t => t.Modified)
+                .Index(t => t.ModifiedBy);
             
             CreateTable(
                 "dbo.AspNetUserRoles",
@@ -25,8 +69,8 @@ namespace LmsWeb.Migrations
                         RoleId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
-                .ForeignKey("dbo.AspNetRoles", t => t.RoleId, cascadeDelete: true)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetRoles", t => t.RoleId)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId)
                 .Index(t => t.RoleId);
             
@@ -35,7 +79,7 @@ namespace LmsWeb.Migrations
                 c => new
                     {
                         Id = c.String(nullable: false, maxLength: 128),
-                        IsActive = c.String(),
+                        IsActive = c.Boolean(nullable: false),
                         Created = c.DateTime(nullable: false),
                         Modified = c.DateTime(nullable: false),
                         CreatedBy = c.String(),
@@ -68,7 +112,7 @@ namespace LmsWeb.Migrations
                         ClaimValue = c.String(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -80,7 +124,7 @@ namespace LmsWeb.Migrations
                         UserId = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => new { t.LoginProvider, t.ProviderKey, t.UserId })
-                .ForeignKey("dbo.AspNetUsers", t => t.UserId, cascadeDelete: true)
+                .ForeignKey("dbo.AspNetUsers", t => t.UserId)
                 .Index(t => t.UserId);
             
         }
@@ -92,17 +136,31 @@ namespace LmsWeb.Migrations
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserClaims", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
+            DropForeignKey("dbo.AspNetPermissions", "ResourceId", "dbo.AspNetResources");
+            DropForeignKey("dbo.AspNetPermissions", "RoleId", "dbo.AspNetRoles");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
             DropIndex("dbo.AspNetUsers", "UserNameIndex");
             DropIndex("dbo.AspNetUsers", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
+            DropIndex("dbo.AspNetResources", new[] { "ModifiedBy" });
+            DropIndex("dbo.AspNetResources", new[] { "Modified" });
+            DropIndex("dbo.AspNetResources", new[] { "CreatedBy" });
+            DropIndex("dbo.AspNetResources", new[] { "Created" });
+            DropIndex("dbo.AspNetPermissions", new[] { "ModifiedBy" });
+            DropIndex("dbo.AspNetPermissions", new[] { "Modified" });
+            DropIndex("dbo.AspNetPermissions", new[] { "CreatedBy" });
+            DropIndex("dbo.AspNetPermissions", new[] { "Created" });
+            DropIndex("dbo.AspNetPermissions", new[] { "ResourceId" });
+            DropIndex("dbo.AspNetPermissions", new[] { "RoleId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
+            DropTable("dbo.AspNetResources");
+            DropTable("dbo.AspNetPermissions");
             DropTable("dbo.AspNetRoles");
         }
     }

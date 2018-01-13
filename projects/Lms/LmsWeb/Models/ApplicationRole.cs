@@ -1,6 +1,8 @@
 ﻿namespace LmsWeb.Models
 {
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.Security.Cryptography.X509Certificates;
 
     using Microsoft.AspNet.Identity.EntityFramework;
 
@@ -13,7 +15,7 @@
 
         public ApplicationRole()
         {
-
+            
         }
 
         [StringLength(50)]
@@ -21,5 +23,7 @@
 
         [StringLength(20)]
         public string DefaultRoute { get; set; }
+
+        public virtual ICollection<AspNetPermission> Permissions { get; set; }
     }
 }
