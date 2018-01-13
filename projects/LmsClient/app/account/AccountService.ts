@@ -52,9 +52,10 @@
             let successCallback = function (response) {
                 console.log('AccountService successCallback');
                 let info: UserInfo = new UserInfo();
-               info.userName = response.data.userName;
-               info.resources = response.data.resources;
+                info.userName = response.data.userName;
+                info.resources = response.data.resources;
                 info.role = response.data.role;
+                info.token = response.data.access_token;
                 self.storageService.save(LocalStorageKeys.UserInfo, info);
                 deferred.resolve(response.data);
             }

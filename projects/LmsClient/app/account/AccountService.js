@@ -41,6 +41,7 @@ var App;
                 info.userName = response.data.userName;
                 info.resources = response.data.resources;
                 info.role = response.data.role;
+                info.token = response.data.access_token;
                 self.storageService.save(App.LocalStorageKeys.UserInfo, info);
                 deferred.resolve(response.data);
             };

@@ -24,7 +24,7 @@ namespace LmsWeb.Controllers
     using ViewModel;
 
     [RoutePrefix("api/Course")]
-    [Authorize]
+    [Authorize(Roles = "Teacher")]
     public class CourseController : BaseController<Course, CourseRequestModel, CourseViewModel>
     { 
     

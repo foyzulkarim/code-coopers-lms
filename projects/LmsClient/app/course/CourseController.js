@@ -35,6 +35,8 @@ var App;
             console.log('i am in TeacherCoursesController');
         }
         TeacherCoursesController.prototype.$onInit = function () { };
+        TeacherCoursesController.prototype.search = function () {
+        };
         return TeacherCoursesController;
     }());
     App.TeacherCoursesController = TeacherCoursesController;

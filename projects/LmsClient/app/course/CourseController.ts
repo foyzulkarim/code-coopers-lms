@@ -27,8 +27,13 @@
     export class TeacherCoursesController implements angular.IController {
         $onInit(): void { }
 
+
         constructor() {
             console.log('i am in TeacherCoursesController');
+        }
+
+        search(): void {
+
         }
     }
 
