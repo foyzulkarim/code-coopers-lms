@@ -10,9 +10,11 @@ namespace LmsWeb.Controllers
     public class ValuesController : ApiController
     {
         // GET api/values
-        public IEnumerable<string> Get()
+        public IHttpActionResult Get()
         {
-            return new string[] { "value1", "value2" };
+            string[] strings = new string[] { "value1", "value2" };
+            dynamic values = new { Values = strings };
+            return this.Ok(values);
         }
 
         // GET api/values/5

@@ -17,9 +17,14 @@ namespace LmsWeb
             // Web API configuration and services
             config.Formatters.Clear();
             config.Formatters.Add(new JsonMediaTypeFormatter());
+            var item = new CamelCasePropertyNamesContractResolver();
+            config.Formatters.JsonFormatter.SerializerSettings.ContractResolver = item;
+
             // Configure Web API to use only bearer token authentication.
             config.SuppressDefaultHostAuthentication();
             config.Filters.Add(new HostAuthenticationFilter(OAuthDefaults.AuthenticationType));
+
+
 
             // Web API routes
             config.MapHttpAttributeRoutes();

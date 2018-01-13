@@ -25,10 +25,15 @@
       "PhoneNumber": "01789000002",
       "Role": "Student"
     }
-  ], 
+  ],
   "Resources": [
     {
-      "Name": "div-student-courses",
+      "Name": "menu-sa-student-list",
+      "IsPublic": false, 
+      "Permissions": ["SuperAdmin"]
+    },
+    {
+      "Name": "div-student-course-list",
       "IsPublic": false,
       "Permissions": [ "Student" ]
     },

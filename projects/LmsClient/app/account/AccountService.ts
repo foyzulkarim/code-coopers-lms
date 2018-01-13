@@ -2,9 +2,9 @@
     export class UserInfo {
         token: string;
         userName: string;
-        landingRoute: string;
         resources: string[];
         requestId: string;
+        role: string;
     }
 
     export class RegisterRequest {
@@ -52,11 +52,10 @@
             let successCallback = function (response) {
                 console.log('AccountService successCallback');
                 let info: UserInfo = new UserInfo();
-                info.landingRoute = response.data.landingRoute;
-                info.userName = response.data.userName;
-                info.resources = response.data.resources;
+               info.userName = response.data.userName;
+               info.resources = response.data.resources;
+                info.role = response.data.role;
                 self.storageService.save(LocalStorageKeys.UserInfo, info);
-
                 deferred.resolve(response.data);
             }
 

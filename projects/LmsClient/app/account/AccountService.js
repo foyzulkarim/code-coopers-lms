@@ -38,9 +38,9 @@ var App;
             var successCallback = function (response) {
                 console.log('AccountService successCallback');
                 var info = new UserInfo();
-                info.landingRoute = response.data.landingRoute;
                 info.userName = response.data.userName;
                 info.resources = response.data.resources;
+                info.role = response.data.role;
                 self.storageService.save(App.LocalStorageKeys.UserInfo, info);
                 deferred.resolve(response.data);
             };
