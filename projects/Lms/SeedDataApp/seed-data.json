@@ -18,6 +18,14 @@
       "Role": "Teacher"
     },
     {
+      "Email": "ony@cclms.com",
+      "Username": "ony19161",
+      "Password": "Pass@123",
+      "EmailConfirmed": true,
+      "PhoneNumber": "01916820818",
+      "Role": "Teacher"
+    },
+    {
       "Email": "student@cclms.com",
       "Username": "student@cclms.com",
       "Password": "Pass@123",
