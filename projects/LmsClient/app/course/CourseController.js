@@ -41,13 +41,28 @@ var App;
     }());
     App.TeacherCoursesController = TeacherCoursesController;
     angular.module('app').controller('TeacherCoursesController', TeacherCoursesController);
-    var TeacherCourseController = /** @class */ (function () {
-        function TeacherCourseController() {
-            console.log('i am in TeacherCourseController');
+    var TeacherCourseController = /** @class */ (function (_super) {
+        __extends(TeacherCourseController, _super);
+        function TeacherCourseController(service) {
+            var _this = _super.call(this, service) || this;
+            _this.reset();
+            return _this;
         }
+        TeacherCourseController.prototype.save = function () {
+            var self = this;
+            if (self.model.fee == null || self.model.fee == 0) {
+                self.model.isFree = true;
+            }
+            _super.prototype.save.call(this);
+        };
+        TeacherCourseController.prototype.reset = function () {
+            var self = this;
+            self.model = new Course();
+        };
         TeacherCourseController.prototype.$onInit = function () { };
+        TeacherCourseController.$inject = ["CourseService"];
         return TeacherCourseController;
-    }());
+    }(App.BaseController));
     App.TeacherCourseController = TeacherCourseController;
     angular.module('app').controller('TeacherCourseController', TeacherCourseController);
 })(App || (App = {}));

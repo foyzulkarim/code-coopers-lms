@@ -6,7 +6,6 @@ module App {
         static StatusBad = 400;
         static BaseApiUrl = AppConstants.BaseUrl + "api/";
         static UserAuthenticationUrl = AppConstants.BaseUrl + "token";
-
         static Account = "Account/";
     }
 
