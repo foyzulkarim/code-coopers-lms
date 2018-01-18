@@ -1,54 +1,89 @@
 ﻿<link href="../../Content/account.css" rel="stylesheet" />
-<div class="row">
-    <div class="omb_login">
-        <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <h1>Sign In</h1>
-                <form class="omb_loginForm" role="form" ng-submit="vm.signin()" novalidate>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" name="email" maxlength="100" id="email" placeholder="Email" ng-model="vm.user.email">
-                    </div>
-                    <span class="help-block"></span>
+<!-- Body -->
+<div class="wrapper body-inverse">
+    <!-- wrapper -->
+    <div class="container">
+        <div class="row">
+            <!-- Sign In form -->
+            <div class="col-sm-5 col-sm-offset-1 signin-form-container">
+                <h3>Sign In to your account</h3>
+                <p class="text-muted">
+                    Please fill out the form below to login to your account.
+                </p>
+                <div class="form-white">
+                    <form role="form">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary btn-xxl">Submit</button>
+                    </form>
+                    <hr>
+                    <p><a href="#" id="lost-btn">Lost your password?</a></p>
+                </div>
+            </div>
+            <!-- Sign Up form -->
+            <div class="col-sm-5">
+                <h3 class="text-right-xs">Sign Up</h3>
+                <p class="text-muted text-right-xs">
+                    Please fill out the form below to create a new account.
+                </p>
+                <div class="form-white">
+                    <form role="form">
+                        <div class="form-group" data-toggle="buttons">
+                            <label class="btn btn-default user-type">
+                                <input type="radio" name="options" id="option1" autocomplete="off">
+                                <span class="user-type-word">I am a student</span>
+                            </label>
 
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" name="password" maxlength="15" id="password" placeholder="Password" ng-model="vm.user.password">
-                    </div>
-                    <span class="help-block"></span>
-                    <p><button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button></p>
-                </form>
+                            <label class="btn btn-default user-type">
+                                <input type="radio" name="options" id="option2" autocomplete="off">
+                                <span class="radio-dot"></span>
+                                <span class="user-type-word">I am a teacher</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" class="form-control" id="username" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="email2">Email address</label>
+                            <input type="email" class="form-control" id="email2" placeholder="Enter email">
+                        </div>
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label for="password2">Password</label>
+                                    <input type="password" class="form-control" id="password2" placeholder="Password">
+                                </div>
+                                <div class="col-sm-6">
+                                    <label for="password2">Repeat password</label>
+                                    <input type="password" class="form-control" id="password3" placeholder="Password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox"> I agree to the <a .html#">Terms of Service</a> and <a href=".html#">Privacy Policy</a>
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary btn-xxl">Create an account</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
-<div class="row">
-    <div class="omb_login">
-        <div class="row omb_row-sm-offset-3">
-            <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-                <h1>Sign Up and Start Learning!</h1>
-                <form class="omb_loginForm" role="form" ng-submit="vm.register()" novalidate>
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" name="email" maxlength="100" id="email" placeholder="Email" ng-model="vm.user.email">
-                    </div>
-                    <span class="help-block"></span>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" name="password" maxlength="15" id="password" placeholder="Password" ng-model="vm.user.password">
-                    </div>
-                    <span class="help-block"></span>
-
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" name="confirmPassword" maxlength="15" id="confirmPassword" placeholder="Confirm Password" ng-model="vm.user.confirmPassword">
-                    </div>
-                    <span class="help-block"></span>
-                    <p><button class="btn btn-lg btn-primary btn-block" type="submit">Register</button></p>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+</div> <!-- / wrapper -->
