@@ -168,3 +168,78 @@
     margin-left: 0;
     margin-right: 10%;
 }
+
+/*Radio button style */
+.user-type.active {
+    background: #7BB712;
+}
+
+.user-type {
+    width: 40%;
+    padding: 10px;
+    position: relative;
+}
+
+.user-type-word {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 22px;
+}
+
+.radio-dot:before, .radio-dot:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fff;
+    border-radius: 100%;
+}
+
+.radio-dot:before {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    top: 10px;
+    left: 16px;
+}
+
+.radio-dot:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    top: 14px;
+    left: 20px;
+}
+
+.user-type.active .user-type-word {
+    color: #fff;
+}
+
+.user-type.active .radio-dot:after {
+    background: #426C2A;
+}
+
+.user-type.active .radio-dot:before {
+    background: #fff;
+    border-color: #699D17;
+}
+
+.user-type:hover .radio-dot:before {
+    border-color: #adadad;
+}
+
+.user-type.active:hover .radio-dot:before {
+    border-color: #699D17;
+}
+
+
+.user-type.active .radio-dot:after {
+    background: #426C2A;
+}
+
+.user-type:hover .radio-dot:after {
+    background: #e6e6e6;
+}
+
+.user-type.active:hover .radio-dot:after {
+    background: #426C2A;
+}
