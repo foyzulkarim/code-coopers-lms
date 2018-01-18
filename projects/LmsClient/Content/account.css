@@ -1,54 +1,245 @@
-﻿.omb_login .omb_loginForm .input-group.i {
-    width: 2em;
+﻿
+
+/* Text Colors */
+
+.body-green .text-color {
+    color: #27ae60;
 }
 
-.omb_login .omb_loginForm .help-block {
-    color: red;
+.body-blue .text-color {
+    color: #3498db;
 }
 
-h2 {
-    color: #333;
+.body-red .text-color {
+    color: #e74c3c;
 }
 
-.btn-primary {
-    background-color: #0077c8;
+.body-amethyst .text-color {
+    color: #9b59b6;
 }
 
-.first-time h2 {
-    margin-top: 0;
+/* Link Colors */
+
+.body-green a {
+    color: #27ae60;
 }
 
-.first-time {
-    border-bottom: 1px solid #ccc;
+.body-blue a {
+    color: #3498db;
 }
 
-    .tips *, .first-time * {
-        text-align: center;
+.body-red a {
+    color: #e74c3c;
+}
+
+.body-amethyst a {
+    color: #9b59b6;
+}
+
+/* Border Colors */
+
+.body-green .border-color {
+    border-color: #27ae60;
+}
+
+.body-blue .border-color {
+    border-color: #3498db;
+}
+
+.body-red .border-color {
+    border-color: #e74c3c;
+}
+
+.body-amethyst .border-color {
+    border-color: #9b59b6;
+}
+
+/* Background Colors */
+
+.body-green .background-color {
+    background-color: #27ae60;
+}
+
+.body-blue .background-color {
+    background-color: #3498db;
+}
+
+.body-red .background-color {
+    background-color: #e74c3c;
+}
+
+.body-amethyst .background-color {
+    background-color: #9b59b6;
+}
+
+.body-green .bg-hover-color:hover {
+    background-color: #229652;
+}
+
+.body-blue .bg-hover-color:hover {
+    background-color: #2980b9;
+}
+
+.body-red .bg-hover-color:hover {
+    background-color: #c0392b;
+}
+
+.body-amethyst .bg-hover-color:hover {
+    background-color: #8e44ad;
+}
+
+
+
+/* Buttons */
+
+.btn-primary, .btn-success, .btn-info, .btn-warning, .bnt-danger, .btn-color {
+    color: #FFF !important;
+}
+
+.btn-default {
+    color: #333 !important;
+}
+
+.body-green .btn-link:hover {
+    color: #27ae60;
+}
+
+.body-blue .btn-link:hover {
+    color: #3498db;
+}
+
+.body-red .btn-link:hover {
+    color: #e74c3c;
+}
+
+.body-amethyst .btn-link:hover {
+    color: #9b59b6;
+}
+
+.body-green .btn-color {
+    background-color: #27ae60;
+    border-color: #229652;
+}
+
+    .body-green .btn-color:hover,
+    .body-green .btn-color:focus,
+    .body-green .btn-color:active {
+        background-color: #229652;
+        border-color: #1A7440;
     }
 
-@media (min-width: 768px) {
-    .omb_login .omb_forgotPwd {
-        text-align: right;
-        margin-top: 10px;
+.body-blue .btn-color {
+    background-color: #3498db;
+    border-color: #2980b9;
+}
+
+    .body-blue .btn-color:hover,
+    .body-blue .btn-color:focus,
+    .body-blue .btn-color:active {
+        background-color: #2980b9;
+        border-color: #1D5C86;
     }
 
-    .first-time {
-        border-bottom: 0;
+.body-red .btn-color {
+    background-color: #e74c3c;
+    border-color: #c0392b;
+}
+
+    .body-red .btn-color:hover,
+    .body-red .btn-color:focus,
+    .body-red .btn-color:active {
+        background-color: #c0392b;
+        border-color: #962E22;
     }
 
-    .tips {
-        border-left: 1px solid #ccc;
+.body-amethyst .btn-color {
+    background-color: #9b59b6;
+    border-color: #8e44ad;
+}
+
+    .body-amethyst .btn-color:hover,
+    .body-amethyst .btn-color:focus,
+    .body-amethyst .btn-color:active {
+        background-color: #8e44ad;
+        border-color: #6C3384;
     }
 
-    .first-time h2, .first-time p {
-        text-align: center;
-    }
+.signin-form-container {
+    margin-left: 0;
+    margin-right: 10%;
+}
 
-    .tips h2, .tips p {
-        text-align: center;
-    }
+/*Radio button style */
+.user-type.active {
+    background: #7BB712;
+}
 
-    .tips h2 {
-        margin-top: 0;
-    }
+.user-type {
+    width: 40%;
+    padding: 10px;
+    position: relative;
+}
+
+.user-type-word {
+    font-size: 15px;
+    font-weight: 600;
+    margin-left: 22px;
+}
+
+.radio-dot:before, .radio-dot:after {
+    content: "";
+    display: block;
+    position: absolute;
+    background: #fff;
+    border-radius: 100%;
+}
+
+.radio-dot:before {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    top: 10px;
+    left: 16px;
+}
+
+.radio-dot:after {
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    top: 14px;
+    left: 20px;
+}
+
+.user-type.active .user-type-word {
+    color: #fff;
+}
+
+.user-type.active .radio-dot:after {
+    background: #426C2A;
+}
+
+.user-type.active .radio-dot:before {
+    background: #fff;
+    border-color: #699D17;
+}
+
+.user-type:hover .radio-dot:before {
+    border-color: #adadad;
+}
+
+.user-type.active:hover .radio-dot:before {
+    border-color: #699D17;
+}
+
+
+.user-type.active .radio-dot:after {
+    background: #426C2A;
+}
+
+.user-type:hover .radio-dot:after {
+    background: #e6e6e6;
+}
+
+.user-type.active:hover .radio-dot:after {
+    background: #426C2A;
 }

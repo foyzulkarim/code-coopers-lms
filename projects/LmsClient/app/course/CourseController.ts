@@ -7,6 +7,10 @@
         }
 
         name: string;
+        description: string;
+        requirements: string;
+        isFree: boolean;
+        teacherId: string;
         fee: number;
     }
 
@@ -39,12 +43,27 @@
 
     angular.module('app').controller('TeacherCoursesController', TeacherCoursesController);
 
-    export class TeacherCourseController implements angular.IController {
-        $onInit(): void { }
-
-        constructor() {
-            console.log('i am in TeacherCourseController');
+    export class TeacherCourseController extends BaseController<Course> implements angular.IController {
+        
+        static $inject = ["CourseService"];
+        constructor(service: CourseService) {
+            super(service);
+            this.reset();
         }
+
+        save(): void {
+            var self = this;
+            if (self.model.fee == null || self.model.fee == 0) {
+                self.model.isFree = true;
+            }
+            super.save();
+        }
+
+        reset(): void {
+            var self = this;
+            self.model = new Course();
+        }
+        $onInit(): void {}
     }
 
     angular.module('app').controller('TeacherCourseController', TeacherCourseController);

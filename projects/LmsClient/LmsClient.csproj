@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\common\Interceptors.js" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="partials\course\teacher-course-entry.tpl.html" />
     <Content Include="partials\course\teacher-course-list.tpl.html" />
     <None Include="packages.config" />
@@ -108,11 +109,15 @@
     <TypeScriptCompile Include="app\account\AccountControllers.ts" />
     <TypeScriptCompile Include="app\account\AccountService.ts" />
     <TypeScriptCompile Include="app\app.config.ts" />
+    <TypeScriptCompile Include="app\common\BaseController.ts" />
+    <TypeScriptCompile Include="app\common\BaseService.ts" />
     <TypeScriptCompile Include="app\common\LocalStorageService.ts" />
     <TypeScriptCompile Include="app\common\Model.ts" />
+    <TypeScriptCompile Include="app\common\UrlService.ts" />
     <TypeScriptCompile Include="app\common\WebService.ts" />
     <TypeScriptCompile Include="app\course\CourseConfig.ts" />
     <TypeScriptCompile Include="app\course\CourseController.ts" />
+    <TypeScriptCompile Include="app\course\CourseService.ts" />
     <TypeScriptCompile Include="app\directive\Permission.ts" />
     <TypeScriptCompile Include="app\home\HomeController.ts" />
     <TypeScriptCompile Include="app\nav.controller.ts" />
