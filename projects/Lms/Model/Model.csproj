@@ -61,6 +61,18 @@
     <Compile Include="Migrations\201801091550273_LevelAdded.Designer.cs">
       <DependentUpon>201801091550273_LevelAdded.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801191530267_CourseTableModified.cs" />
+    <Compile Include="Migrations\201801191530267_CourseTableModified.Designer.cs">
+      <DependentUpon>201801191530267_CourseTableModified.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191535069_CourseTableModified2.cs" />
+    <Compile Include="Migrations\201801191535069_CourseTableModified2.Designer.cs">
+      <DependentUpon>201801191535069_CourseTableModified2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801191542410_CourseTableModified3.cs" />
+    <Compile Include="Migrations\201801191542410_CourseTableModified3.Designer.cs">
+      <DependentUpon>201801191542410_CourseTableModified3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -74,6 +86,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801091550273_LevelAdded.resx">
       <DependentUpon>201801091550273_LevelAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191530267_CourseTableModified.resx">
+      <DependentUpon>201801191530267_CourseTableModified.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191535069_CourseTableModified2.resx">
+      <DependentUpon>201801191535069_CourseTableModified2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191542410_CourseTableModified3.resx">
+      <DependentUpon>201801191542410_CourseTableModified3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

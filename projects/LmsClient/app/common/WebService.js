@@ -12,6 +12,7 @@ var App;
         AppConstants.Account = "Account/";
         // course
         AppConstants.Course = AppConstants.BaseApiUrl + "Course";
+        AppConstants.TeacherCourse = AppConstants.BaseApiUrl + "";
         return AppConstants;
     }());
     App.AppConstants = AppConstants;

@@ -10,7 +10,7 @@
                 //config.headers.requestId = new Date().getTime();
                 var authData = JSON.parse(localStorage.getItem("UserInfo"));
                 if (authData) {
-                    config.headers.Authorization = authData.tokenType + " " + authData.token;
+                    config.headers.Authorization = "Bearer" + " " + authData.token;
                 }
                 console.log('im in request http provider', config);
                 return config;

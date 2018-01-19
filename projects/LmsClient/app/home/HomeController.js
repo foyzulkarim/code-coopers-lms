@@ -25,7 +25,7 @@ var App;
             }
             rootScope.$on("signedout", function () { self.signedOutSuccessfully(); });
             // load courses
-            _this.search();
+            _this.search("/Student/AllCourses");
             return _this;
         }
         HomeController.prototype.signedOutSuccessfully = function () {

@@ -13,14 +13,14 @@
             return '00000000-0000-0000-0000-000000000000';
         }
     }
-    
+
     export class BaseController<T extends Entity> implements angular.IController {
 
         // my services
         searchService: SearchService;
         saveService: SaveService;
         localStorageService: LocalStorageService;
-         
+
         subUrlPath: string;
 
         // my variables
@@ -55,13 +55,13 @@
             search: SearchService,
             save: SaveService,
             storageService: LocalStorageService,
-            commandUrl: string         
+            commandUrl: string
         ) {
             this.rootScope = rootScope;
             this.scope = scope;
             this.location = $location;
             this.commandUrl = commandUrl;
-            this.queryUrl = this.commandUrl+"Query";
+            this.queryUrl = this.commandUrl + "Query";
             this.searchService = search;
             this.saveService = save;
             this.stateService = $state;
@@ -70,7 +70,7 @@
             this.activate();
 
         }
-        
+
         goto(page: number): void {
             this.searchRequest.page = page;
             this.search();
@@ -86,13 +86,13 @@
             this.models = [];
             this.isUpdateMode = false;
             this.searchRequest = new SearchRequest("", "Modified", "False", "");
-            this.searchRequest.page = 1;            
+            this.searchRequest.page = 1;
         }
 
-        search(): void {
+        search(urlActionSuffix: string = ""): void {
             var self = this;
             var successCallback = (response: SearchResponse): void => {
-                console.log(response);
+                console.log("search-successCallback : ",response);
                 self.totalCount = response.count;
                 self.models = <any>response.models;
                 if (self.models.length === 0) {
@@ -105,11 +105,16 @@
                 console.log(error);
             };
 
+            let actionSuffix = "/Search";
+            if (urlActionSuffix.length>0) {
+                actionSuffix = urlActionSuffix;
+            }
+
             self.searchService
-                .search(self.searchRequest, self.queryUrl + "/Search")
+                .search(self.searchRequest, self.queryUrl + actionSuffix)
                 .then(<any>successCallback, errorCallback);
         }
-        
+
         edit(id: string): void {
             var self = this;
             var onSuccess = (data: SearchResponse) => {
@@ -170,7 +175,7 @@
             };
             self.saveService.delete(id, self.commandUrl + "/Delete").then(successCallback, errorCallback);
         }
-         
+
         private pad(num: number, size: number): string {
             var s = num + "";
             while (s.length < size) s = "0" + s;
@@ -193,7 +198,7 @@
 
         back(): void {
             window.history.back();
-        }        
+        }
 
         navigateState(stateName: string, param: any): void {
             var self = this;

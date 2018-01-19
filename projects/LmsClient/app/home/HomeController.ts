@@ -27,7 +27,7 @@
             rootScope.$on("signedout", () => { self.signedOutSuccessfully(); });
 
             // load courses
-            this.search();
+            this.search("/Student/AllCourses");
 
         }
 

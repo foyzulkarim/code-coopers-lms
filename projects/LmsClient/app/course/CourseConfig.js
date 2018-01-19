@@ -3,13 +3,13 @@ var App;
     var CourseConfig = /** @class */ (function () {
         function CourseConfig(stateProvider, urlRouteProvider) {
             stateProvider // course
-                .state("root.menu-teacher-course-list", {
+                .state("root.teacher-course-list", {
                 url: "/teacher-course-list",
                 templateUrl: "partials/course/teacher-course-list.tpl.html",
                 controller: "TeacherCoursesController",
                 controllerAs: "vm"
             })
-                .state("root.menu-teacher-course-entry", {
+                .state("root.teacher-course-entry", {
                 url: "/teacher-course-entry",
                 templateUrl: "partials/course/teacher-course-entry.tpl.html",
                 controller: "TeacherCourseController",

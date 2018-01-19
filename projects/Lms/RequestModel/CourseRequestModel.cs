@@ -14,6 +14,10 @@ namespace RequestModel
 
     public class CourseRequestModel : RequestModel<Course>
     {
+        public string TeacherId { get; set; }
+
+        public string StudentId { get; set; }
+
         public CourseRequestModel(string keyword, string orderBy = "Modified", string isAscending = "False")
             : base(keyword, orderBy, isAscending)
         {
@@ -21,7 +25,20 @@ namespace RequestModel
 
         protected override Expression<Func<Course, bool>> GetExpression()
         {
-            return x => x != null;
+            if (!string.IsNullOrWhiteSpace(Keyword))
+            {
+                this.ExpressionObj = this.ExpressionObj.And(x => x.Name.ToLower().Contains(Keyword));
+            }
+            
+            if (!string.IsNullOrWhiteSpace(TeacherId))
+            {
+                this.ExpressionObj = this.ExpressionObj.And(x => x.TeacherId == TeacherId);
+            }
+
+            // we will add student's course search logic after we introduce enrollment feature 
+
+
+            return this.ExpressionObj;
         }
 
         public override Expression<Func<Course, DropdownViewModel>> Dropdown()

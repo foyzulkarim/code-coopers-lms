@@ -15,6 +15,7 @@ var App;
         function Course() {
             var _this = _super.call(this) || this;
             _this.fee = 0;
+            _this.teacherId = "1";
             return _this;
         }
         return Course;
@@ -30,24 +31,39 @@ var App;
     }());
     App.CoursesController = CoursesController;
     angular.module('app').controller('CoursesController', CoursesController);
-    var TeacherCoursesController = /** @class */ (function () {
-        function TeacherCoursesController() {
+    var TeacherCoursesController = /** @class */ (function (_super) {
+        __extends(TeacherCoursesController, _super);
+        function TeacherCoursesController(rootScope, scope, $location, $state, $stateParams, search, save, storageService) {
+            var _this = _super.call(this, rootScope, scope, $location, $state, $stateParams, search, save, storageService, App.AppConstants.Course) || this;
             console.log('i am in TeacherCoursesController');
+            _this.search("/Teacher/MyCourses");
+            return _this;
         }
-        TeacherCoursesController.prototype.$onInit = function () { };
-        TeacherCoursesController.prototype.search = function () {
+        TeacherCoursesController.prototype.$onInit = function () {
         };
+        TeacherCoursesController.$inject = [
+            "$rootScope", "$scope", "$location", "$state", "$stateParams",
+            "SearchService", "SaveService", "LocalStorageService"
+        ];
         return TeacherCoursesController;
-    }());
+    }(App.BaseController));
     App.TeacherCoursesController = TeacherCoursesController;
     angular.module('app').controller('TeacherCoursesController', TeacherCoursesController);
-    var TeacherCourseController = /** @class */ (function () {
-        function TeacherCourseController() {
+    var TeacherCourseController = /** @class */ (function (_super) {
+        __extends(TeacherCourseController, _super);
+        function TeacherCourseController(rootScope, scope, $location, $state, $stateParams, search, save, storageService) {
+            var _this = _super.call(this, rootScope, scope, $location, $state, $stateParams, search, save, storageService, App.AppConstants.Course) || this;
             console.log('i am in TeacherCourseController');
+            _this.model = new Course();
+            return _this;
         }
         TeacherCourseController.prototype.$onInit = function () { };
+        TeacherCourseController.$inject = [
+            "$rootScope", "$scope", "$location", "$state", "$stateParams",
+            "SearchService", "SaveService", "LocalStorageService"
+        ];
         return TeacherCourseController;
-    }());
+    }(App.BaseController));
     App.TeacherCourseController = TeacherCourseController;
     angular.module('app').controller('TeacherCourseController', TeacherCourseController);
 })(App || (App = {}));

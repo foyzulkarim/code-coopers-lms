@@ -45,10 +45,11 @@ var App;
             this.searchRequest = new App.SearchRequest("", "Modified", "False", "");
             this.searchRequest.page = 1;
         };
-        BaseController.prototype.search = function () {
+        BaseController.prototype.search = function (urlActionSuffix) {
+            if (urlActionSuffix === void 0) { urlActionSuffix = ""; }
             var self = this;
             var successCallback = function (response) {
-                console.log(response);
+                console.log("search-successCallback : ", response);
                 self.totalCount = response.count;
                 self.models = response.models;
                 if (self.models.length === 0) {
@@ -59,8 +60,12 @@ var App;
             var errorCallback = function (error) {
                 console.log(error);
             };
+            var actionSuffix = "/Search";
+            if (urlActionSuffix.length > 0) {
+                actionSuffix = urlActionSuffix;
+            }
             self.searchService
-                .search(self.searchRequest, self.queryUrl + "/Search")
+                .search(self.searchRequest, self.queryUrl + actionSuffix)
                 .then(successCallback, errorCallback);
         };
         BaseController.prototype.edit = function (id) {

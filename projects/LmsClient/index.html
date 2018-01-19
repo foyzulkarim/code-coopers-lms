@@ -23,10 +23,14 @@
                 </div>
                 <div class="col-xs-6 col-md-6 text-right" ng-controller="NavController as vm" access-control>
                     <div class="links-header l-inline-block mvm" ng-show="vm.isSignedIn">
-                        <a href="javascript:void(0)" ui-sref="root.menu-sa-student-list" ng-show="vm.canShow('menu-sa-student-list')">Students</a>
-                        <a href="javascript:void(0)" ui-sref="root.menu-teacher-course-entry" ng-show="vm.canShow('menu-teacher-course-entry')">Add Course</a>
-                        <a href="javascript:void(0)" ui-sref="root.menu-teacher-course-list" ng-show="vm.canShow('menu-teacher-course-list')">Courses</a>
-                        <a href="javascript:void(0)" ui-sref="root.menu-student-course-list" ng-show="vm.canShow('menu-student-course-list')">Courses</a>
+                        <a href="javascript:void(0)" ui-sref="root.sa-student-list"
+                           ng-show="vm.canShow('menu-sa-student-list')">Students</a>
+                        <a href="javascript:void(0)" ui-sref="root.teacher-course-entry"
+                           ng-show="vm.canShow('menu-teacher-course-entry')">Add Course</a>
+                        <a href="javascript:void(0)" ui-sref="root.teacher-course-list"
+                           ng-show="vm.canShow('menu-teacher-course-list')">Courses</a>
+                        <a href="javascript:void(0)" ui-sref="root.student-course-list" 
+                           ng-show="vm.canShow('menu-student-course-list')">Courses</a>
                     </div>
                     <div class="section-auth l-inline-block mvm">
                         <!-- if not signed in -->

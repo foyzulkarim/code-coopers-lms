@@ -12,6 +12,7 @@ module App {
         static Account = "Account/";
         // course
         static Course = AppConstants.BaseApiUrl + "Course";
+        static TeacherCourse = AppConstants.BaseApiUrl + "";
     }
 
 
