@@ -18,7 +18,7 @@
                 .state("root.home",
                 {
                     url: "/",
-                    templateUrl: "partials/home/home.tpl.html",
+                    templateUrl: "partials/course/public-course-list.tpl.html",
                     controller: "HomeController", // instance  name is 'vm'
                     controllerAs: "vm"
                 })

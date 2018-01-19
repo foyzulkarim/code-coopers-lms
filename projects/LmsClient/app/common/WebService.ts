@@ -1,17 +1,21 @@
 module App {
 
+    const api = "api/";
+
     export class AppConstants {
         static BaseUrl = "http://localhost:1837/";
         static StatusOk = 200;
         static StatusBad = 400;
-        static BaseApiUrl = AppConstants.BaseUrl + "api/";
+        static BaseApiUrl = AppConstants.BaseUrl + api;
         static UserAuthenticationUrl = AppConstants.BaseUrl + "token";
 
         static Account = "Account/";
+        // course
+        static Course = AppConstants.BaseApiUrl + "Course";
     }
 
 
-  export class WebService {
+    export class WebService {
 
         private qService: angular.IQService;
         private httpService: angular.IHttpService;
@@ -35,7 +39,7 @@ module App {
             }, error => {
                 deffered.reject(error);
             });
-            
+
             return deffered.promise;
         }
 
@@ -59,13 +63,13 @@ module App {
             var self = this;
             var deffered = self.qService.defer();
             var config: angular.IRequestShortcutConfig =
-            {
-                //headers: { 'Content-Type': "application/x-www-form-urlencoded" }
-                headers: { }
-            };
+                {
+                    //headers: { 'Content-Type': "application/x-www-form-urlencoded" }
+                    headers: {}
+                };
 
             config.headers["Content-Type"] = "application/x-www-form-urlencoded";
-            
+
             self.httpService.post(url, data, config).then((result: any): any => {
                 if (result.status === 200) {
                     deffered.resolve(result);

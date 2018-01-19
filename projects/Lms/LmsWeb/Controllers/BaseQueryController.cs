@@ -22,8 +22,8 @@
         [HttpPost]
         public async Task<IHttpActionResult> Search(TR request)
         {
-            var students = await this.service.SearchAsync(request);
-            return this.Ok(students);
+            var list = await this.service.SearchAsync(request);
+            return this.Ok(list);
         }
     }
 }

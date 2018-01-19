@@ -63,7 +63,23 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\account\AccountControllers.js" />
+    <Content Include="app\account\AccountService.js" />
+    <Content Include="app\app.config.js" />
+    <Content Include="app\common\BaseController.js" />
     <Content Include="app\common\Interceptors.js" />
+    <Content Include="app\common\LocalStorageService.js" />
+    <Content Include="app\common\RequestModel.js" />
+    <Content Include="app\common\ResponseModel.js" />
+    <Content Include="app\common\SaveService.js" />
+    <Content Include="app\common\SearchService.js" />
+    <Content Include="app\common\WebService.js" />
+    <Content Include="app\course\CourseConfig.js" />
+    <Content Include="app\course\CourseController.js" />
+    <Content Include="app\directive\Permission.js" />
+    <Content Include="app\home\HomeController.js" />
+    <Content Include="app\nav.controller.js" />
+    <Content Include="partials\course\public-course-list.tpl.html" />
     <Content Include="partials\course\teacher-course-entry.tpl.html" />
     <Content Include="partials\course\teacher-course-list.tpl.html" />
     <None Include="packages.config" />
@@ -108,8 +124,12 @@
     <TypeScriptCompile Include="app\account\AccountControllers.ts" />
     <TypeScriptCompile Include="app\account\AccountService.ts" />
     <TypeScriptCompile Include="app\app.config.ts" />
+    <TypeScriptCompile Include="app\common\BaseController.ts" />
     <TypeScriptCompile Include="app\common\LocalStorageService.ts" />
-    <TypeScriptCompile Include="app\common\Model.ts" />
+    <TypeScriptCompile Include="app\common\RequestModel.ts" />
+    <TypeScriptCompile Include="app\common\ResponseModel.ts" />
+    <TypeScriptCompile Include="app\common\SaveService.ts" />
+    <TypeScriptCompile Include="app\common\SearchService.ts" />
     <TypeScriptCompile Include="app\common\WebService.ts" />
     <TypeScriptCompile Include="app\course\CourseConfig.ts" />
     <TypeScriptCompile Include="app\course\CourseController.ts" />

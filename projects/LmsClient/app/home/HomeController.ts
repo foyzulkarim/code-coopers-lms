@@ -1,19 +1,23 @@
 ﻿module App {
 
-    class HomeController {
+    class HomeController extends BaseController<Course> {
 
-        static $inject = ["$state", "$scope", "$rootScope", "LocalStorageService"];
-        stateService: angular.ui.IStateService;
+        static $inject: string[] = ["$rootScope","$scope", "$location", "$state", "$stateParams", "SearchService", "SaveService","LocalStorageService"];
         isSignedIn: boolean;
-        user: UserInfo;
-
-        constructor(stateService: angular.ui.IStateService,
-            scope: angular.IScope,
+       
+        constructor(
             rootScope: angular.IRootScopeService,
-            storageService: LocalStorageService) {
-            console.log('i am in home');
+            scope: angular.IScope,
+            location: angular.ILocationService,
+            state: angular.ui.IStateService,
+            stateParams: angular.ui.IStateParamsService,
+            search: SearchService,
+            save: SaveService,
+            storage: LocalStorageService
+        ) {
+            super(rootScope,scope,location, state, stateParams, search, save, storage, AppConstants.Course);
             var self = this;
-            let userInfo = storageService.get(LocalStorageKeys.UserInfo) as UserInfo;
+            let userInfo = self.localStorageService.get(LocalStorageKeys.UserInfo) as UserInfo;
             if (userInfo) {
                 this.signedInSuccessfully();
             } else {
@@ -21,6 +25,9 @@
             }
 
             rootScope.$on("signedout", () => { self.signedOutSuccessfully(); });
+
+            // load courses
+            this.search();
 
         }
 

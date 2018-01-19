@@ -11,7 +11,7 @@
 
     using ViewModel;
 
-    [Authorize(Roles = "Teacher")]
+    [AllowAnonymous]
     [RoutePrefix("api/CourseQuery")]
     public class CourseQueryController : BaseQueryController<Course, CourseRequestModel, CourseViewModel>
     {

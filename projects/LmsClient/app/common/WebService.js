@@ -1,14 +1,17 @@
 var App;
 (function (App) {
+    var api = "api/";
     var AppConstants = /** @class */ (function () {
         function AppConstants() {
         }
         AppConstants.BaseUrl = "http://localhost:1837/";
         AppConstants.StatusOk = 200;
         AppConstants.StatusBad = 400;
-        AppConstants.BaseApiUrl = AppConstants.BaseUrl + "api/";
+        AppConstants.BaseApiUrl = AppConstants.BaseUrl + api;
         AppConstants.UserAuthenticationUrl = AppConstants.BaseUrl + "token";
         AppConstants.Account = "Account/";
+        // course
+        AppConstants.Course = AppConstants.BaseApiUrl + "Course";
         return AppConstants;
     }());
     App.AppConstants = AppConstants;

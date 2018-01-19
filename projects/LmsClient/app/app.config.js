@@ -11,7 +11,7 @@ var App;
             })
                 .state("root.home", {
                 url: "/",
-                templateUrl: "partials/home/home.tpl.html",
+                templateUrl: "partials/course/public-course-list.tpl.html",
                 controller: "HomeController",
                 controllerAs: "vm"
             })
